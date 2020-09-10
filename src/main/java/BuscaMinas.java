@@ -1,15 +1,15 @@
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.Random;
 import java.util.Scanner;
-
+import java.util.logging.*;
 public class BuscaMinas {
     public void main (String args[]) {
-	static final Logger logger = Logger.getLogger(ManageDemand.class.getName()); 
+
+	final Logger logger = Logger.getLogger(BuscaMinas.class.getName());
 	int n, m;
 	n = m = 10;
-    	int board[] = generate_board (n, m);
+    	int board[][] = generate_board (n, m);
 
 	boolean over = false;
 	Scanner input = new Scanner (System.in);
@@ -30,7 +30,11 @@ public class BuscaMinas {
 	}
     }
 
-    public int[] generate_board (int n, int m) {
+	private boolean check_if_win(int[][] board) {
+		return false;
+    }
+
+	public int[][] generate_board (int n, int m) {
 	    int board[][] = new int[n][m];
 	    Random rand = new Random();
 	    for (int i = 0; i < n; i++) {
@@ -44,7 +48,7 @@ public class BuscaMinas {
 	    return board;
     }
 
-    public boolean select_space (int n, int m, int board[]) {
+    public boolean select_space (int n, int m, int board[][]) {
     	if (board[n][m] == 0) {
 		board[n][m] = 2;
 		return false;
@@ -53,7 +57,7 @@ public class BuscaMinas {
 		return true;
     }
 
-    public boolean check_if_win (int board[], int n, int m) {
+    public boolean check_if_win (int board[][], int n, int m) {
     	boolean win = true;
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < m; j++) {
