@@ -20,11 +20,11 @@ public class BuscaMinas {
 		logger.info ("Ingresa columna: ");
 		j = input.nextInt();
 		if (select_space (n, m, board)) {
-			logger.info ("Perdiste");
+			logger.info ("Encontraste una mina! Perdiste :(");
 			return;
 		}
 		if (check_if_win (board)) {
-			logger.info ("Ganaste");
+			logger.info ("Ganaste :)");
 			return;
 		}
 	}
