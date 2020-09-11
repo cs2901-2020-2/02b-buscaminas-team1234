@@ -64,8 +64,16 @@ public class BuscaMinas {
 		while (true) {
 			logger.info ("Ingresa fila: ");
 			input_ancho = input.nextInt();
+			if(input_ancho>ancho){
+				logger.warning ("¡Ancho fuera de rango! Maximo ancho de: "+ancho);
+				continue;
+			}
 			logger.info ("Ingresa columna: ");
 			input_alto = input.nextInt();
+			if(input_alto>alto){
+				logger.warning ("¡Ancho fuera de rango! Maximo alto de: "+alto);
+				continue;
+			}
 			if (select_space (ancho, alto, board)) {
 				logger.info ("Encontraste una mina! Perdiste :(");
 				return;
