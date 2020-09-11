@@ -1,6 +1,8 @@
+USAR INGLES EN EL PROYECTO
+
 1. dibujo en consola   --> Alvaro
 2. select space (implementar caso de casilla_abierta, mina y casilla)(evitar que jugaro pierda con casilla abierta)  --> Eduardo
 3. check_if_win --> Fabricio
 4. test select_space (casilla abierta, casilla ya selecionada y mina) --> Victor
-5. test check if win (Junit para implementar) 
-6. test funcion de funcion dibujo (Junit para implementar) 
+5. test check if win (Junit para implementar)  --> Mauricio
+6. test funcion de funcion dibujo (Junit para implementar) -> Jhonatan
