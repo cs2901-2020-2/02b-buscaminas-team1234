@@ -74,7 +74,7 @@ public class BuscaMinas {
 				logger.warning ("¡Ancho fuera de rango! Maximo alto de: "+(alto-1));
 				continue;
 			}
-			if (select_space (ancho, alto, board)) {
+			if (select_space (input_ancho, input_alto, board)) {
 				logger.info ("Encontraste una mina! Perdiste :(");
 				return;
 			}
