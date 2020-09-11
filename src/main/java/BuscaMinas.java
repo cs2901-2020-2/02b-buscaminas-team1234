@@ -73,7 +73,7 @@ public class BuscaMinas{
             return false;          
 
         }
-        else if(board[posx][posy] != Mina || board[posx][posy] != Casilla){
+        else if(board[posx][posy] != Mina && board[posx][posy] != Casilla){
             logger.info("Esta casilla ya la tomaste!");
             return false;
         }
