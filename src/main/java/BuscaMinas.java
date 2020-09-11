@@ -3,61 +3,67 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.*;
+
+
 public class BuscaMinas {
+	private static final int MINA = -1;
+	private static final int CASILLA = 0;
+	private static final int CASILLA_ABIERTA = 2;
+
 	static final Logger logger = Logger.getLogger(BuscaMinas.class.getName());
 
 	private static boolean check_if_win(int[][] board) {
 		return false;
     }
 
-	public static int[][] generate_board(int n, int m) {
-	    int board[][] = new int[n][m];
+	public static int[][] generate_board(int ancho, int alto) {
+	    int [][]board = new int[ancho][alto];
 	    Random rand = new Random();
-	    for (int i = 0; i < n; i++) {
-	    	for (int j = 0; j < m; j++) {
+	    for (int iterador_ancho = 0; iterador_ancho < ancho; iterador_ancho++) {
+	    	for (int iterador_alto = 0; iterador_alto < alto; iterador_alto++) {
 			if (rand.nextInt(2) == 0)
-				board[i][j] = 0;
+				board[iterador_ancho][iterador_alto] = CASILLA;
 			else
-				board[i][j] = -1;
+				board[iterador_ancho][iterador_alto] = MINA;
 		}
 	    }
 	    return board;
     }
 
-    public static boolean select_space(int n, int m, int board[][]) {
-    	if (board[n][m] == 0) {
-		board[n][m] = 2;
+    public static boolean select_space(int ancho, int alto, int [][] board) {
+    	if (board[ancho][alto] == CASILLA) {
+		board[ancho][alto] = CASILLA_ABIERTA;
 		return false;
 	}
 	else
 		return true;
     }
 
-    public boolean check_if_win (int board[][], int n, int m) {
+    public boolean check_if_win (int [][]board, int ancho, int alto) {
     	boolean win = true;
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < m; j++) {
-			if (board[i][j] == 0)
+	for (int iterador_ancho = 0; iterador_ancho < ancho; iterador_ancho++) {
+		for (int iterador_alto = 0; iterador_alto < alto; iterador_alto++) {
+			if (board[iterador_ancho][iterador_alto] == CASILLA)
 				win = false;
 		}
 	}
 	return win;
     }
 
-	public static void main (String args[]) {
-		int n, m;
-		n = m = 10;
-		int board[][] = generate_board (n, m);
+	public static void main (String [] args) {
+		int ancho, alto;
+		ancho = alto = 10;
+		int [][]board = generate_board (ancho, alto);
 
 		boolean over = false;
 		Scanner input = new Scanner (System.in);
-		int i, j;
+		int input_ancho, input_alto;
 		while (true) {
 			logger.info ("Ingresa fila: ");
-			i = input.nextInt();
+			input_ancho = input.nextInt();
 			logger.info ("Ingresa columna: ");
-			j = input.nextInt();
-			if (select_space (n, m, board)) {
+			input_alto = input.nextInt();
+			if (select_space (ancho, alto, board)) {
 				logger.info ("Encontraste una mina! Perdiste :(");
 				return;
 			}
