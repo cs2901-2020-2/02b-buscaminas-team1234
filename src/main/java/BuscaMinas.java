@@ -50,12 +50,16 @@ public class BuscaMinas {
     }
 
 	public static void main (String [] args) {
+		Scanner input = new Scanner (System.in);
 		int ancho, alto;
-		ancho = alto = 10;
+		logger.info ("Ingresa alto: ");
+		ancho = input.nextInt();
+		logger.info ("Ingresa ancho: ");
+		alto = input.nextInt();
 		int [][]board = generate_board (ancho, alto);
 
 		boolean over = false;
-		Scanner input = new Scanner (System.in);
+
 		int input_ancho, input_alto;
 		while (true) {
 			logger.info ("Ingresa fila: ");
