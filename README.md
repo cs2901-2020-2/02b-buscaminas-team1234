@@ -8,9 +8,9 @@ Implementacion de un buscaminas simple donde se dividio las funciones y test.
 - Alvaro Aguirre    201820076
 - Victor Peña       201810212
 - Mauricio Pinto    201610404
-- Jonathan Prieto   201
+- Jonathan Prieto   201710179
 - Eduardo Salas     201820145
-- Fabricio Vazques  201
+- Fabricio Vazques  201810423
 
 
 02b-buscaminas-team1234 created by GitHub Classroom
