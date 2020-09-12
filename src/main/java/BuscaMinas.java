@@ -29,7 +29,7 @@ public class BuscaMinas {
     }
 
       public static void updateBoard(int alto, int ancho){
-		selectedCasillas.put(alto, ancho);
+		selectedCasillas.put(alto + 1, ancho + 1);
 		CASILLAS_RESTANTES--;
 		logger.info("Quedan " + CASILLAS_RESTANTES + " casillas sin minas");
 		logger.info("Casillas abiertas: ");
@@ -46,15 +46,22 @@ public class BuscaMinas {
 			updateBoard(alto, ancho);
 			return false;
 		}
-		else
+		else if(board[alto][ancho] == CASILLA_ABIERTA){
+			logger.info("Esta casilla ya ha sido abierta!");
+
+			return false;
+		}
+		else{
 			return true;
+		}
     }
 
     public static boolean check_if_win (int [][]board, int ancho, int alto) {
     	boolean win = true;
-		for (int i = 0; i < alto; i++) {
-			for (int j = 0; j < ancho; j++) {
-				if (board[i][j] == CASILLA)
+      
+		for (int iterador_alto = 0; iterador_alto < alto; iterador_alto++) {
+			for (int iterador_ancho = 0; iterador_ancho < ancho; iterador_ancho++) {
+				if (board[iterador_alto][iterador_ancho] == CASILLA)
 					win = false;
 			}
 		}
@@ -93,6 +100,7 @@ public class BuscaMinas {
 		boolean over = false;
 
 		int input_ancho, input_alto;
+		
 		while (true) {
 			logger.info ("Ingresa fila: ");
 			input_alto = input.nextInt();
@@ -119,5 +127,8 @@ public class BuscaMinas {
 				break;
 			}
 		}
+
+
 	}
+
 }
