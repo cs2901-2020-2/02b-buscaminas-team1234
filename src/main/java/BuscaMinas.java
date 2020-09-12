@@ -46,8 +46,15 @@ public class BuscaMinas {
 			updateBoard(alto, ancho);
 			return false;
 		}
-		else
+		else if(board[ancho][alto] == CASILLA_ABIERTA){
+			logger.info("Casilla llena!");
+			return false;
+		}
+		else{
+			logger.info("Perdiste!");
 			return true;
+
+		}
     }
 
     public static boolean check_if_win (int [][]board, int ancho, int alto) {
@@ -93,6 +100,7 @@ public class BuscaMinas {
 		boolean over = false;
 
 		int input_ancho, input_alto;
+		
 		while (true) {
 			logger.info ("Ingresa fila: ");
 			input_alto = input.nextInt();
@@ -119,5 +127,8 @@ public class BuscaMinas {
 				break;
 			}
 		}
+
+
 	}
+
 }
