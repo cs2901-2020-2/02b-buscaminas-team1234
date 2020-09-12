@@ -48,6 +48,7 @@ public class BuscaMinas {
 		}
 		else if(board[alto][ancho] == CASILLA_ABIERTA){
 			logger.info("Esta casilla ya ha sido abierta!");
+
 			return false;
 		}
 		else{
