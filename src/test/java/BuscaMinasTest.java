@@ -6,31 +6,47 @@ import java.io.InputStream;
 
 public class BuscaMinasTest {
     @Test
-    public void test_check_win0() throws IOException {
+    public void testCheckWinComplete() throws IOException {
         int ancho = 3, alto = 3;
         int [][]board = generate_test_board (ancho, alto);
-        generic (board, ancho, alto, true);
+        generic_win (board, ancho, alto, true);
     }
     @Test
-    public void test_check_win1() throws IOException {
+    public void testCheckWinMines() throws IOException {
         int ancho = 4, alto = 6;
         int [][]board = generate_test_board (ancho, alto);
         board[2][1] = -1;
         board[3][3] = -1;
-        generic (board, ancho, alto, true);
+        generic_win (board, ancho, alto, true);
     }
     @Test
-    public void test_check_win2() throws IOException {
+    public void testCheckWinClosed() throws IOException {
         int ancho = 2, alto = 2;
         int [][]board = generate_test_board (ancho, alto);
         board[1][1] = -1;
         board[0][0] = 0;
-        generic (board, ancho, alto, false);
+        generic_board (board, ancho, alto);
     }
-
-    private void generic (int [][]test_board, int ancho, int alto, boolean expected_result) throws IOException {
+    @Test
+    public void testCheckBoard4x4 () throws IOException {
+        int ancho = 4, alto = 2;
+        int [][]board = BuscaMinas.generate_board(ancho, alto);
+        generic_board (board, ancho, alto);
+    }
+    @Test
+    public void testCheckBoard3x2 () throws IOException {
+        int ancho = 3, alto = 2;
+        int [][]board = BuscaMinas.generate_board(ancho, alto);
+        generic_board (board, ancho, alto);
+    }
+    private void generic_win (int [][]test_board, int ancho, int alto, boolean expected_result) throws IOException {
         boolean result = BuscaMinas.check_if_win (test_board, ancho, alto);
         Assert.assertEquals(expected_result, result);
+    }
+
+    private void generic_board (int [][]board, int expected_ancho, int expected_alto) {
+        Assert.assertEquals(board.length, expected_alto);
+        Assert.assertEquals(board[0].length, expected_ancho);
     }
 
     private int[][] generate_test_board (int ancho, int alto) {
