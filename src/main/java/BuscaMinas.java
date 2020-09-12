@@ -38,11 +38,11 @@ public class BuscaMinas {
 			return true;
     }
 
-    public boolean check_if_win (int [][]board, int ancho, int alto) {
+    public static boolean check_if_win (int [][]board, int ancho, int alto) {
     	boolean win = true;
-		for (int iterador_ancho = 0; iterador_ancho < ancho; iterador_ancho++) {
-			for (int iterador_alto = 0; iterador_alto < alto; iterador_alto++) {
-				if (board[iterador_ancho][iterador_alto] == CASILLA)
+		for (int iterador_alto = 0; iterador_alto < alto; iterador_alto++) {
+			for (int iterador_ancho = 0; iterador_ancho < ancho; iterador_ancho++) {
+				if (board[iterador_alto][iterador_ancho] == CASILLA)
 					win = false;
 			}
 		}
