@@ -79,6 +79,7 @@ public class BuscaMinas {
 		alto = input.nextInt();
 		logger.info ("Ingresa ancho: ");
 		ancho = input.nextInt();
+
 		int [][]board = generate_board (ancho, alto);
 		logger.info("Quedan " + CASILLAS_RESTANTES + " casillas por abrir!");
 
