@@ -8,7 +8,7 @@ Implementacion de un buscaminas simple donde se dividio las funciones y test.
 - Eduardo Salas     201820145
 - Alvaro Aguirre    201820076
 - Victor Peña       201810212
-- Mauricio Pinto    201
+- Mauricio Pinto    201610404
 - Jonathan Prieto   201
 - Fabricio Vazques  201
 
