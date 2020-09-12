@@ -64,10 +64,28 @@ public class BuscaMinas {
 	public static void main (String [] args) {
 		Scanner input = new Scanner (System.in);
 		int ancho, alto;
-		logger.info ("Ingresa alto: ");
-		alto = input.nextInt();
-		logger.info ("Ingresa ancho: ");
-		ancho = input.nextInt();
+
+		while(true){
+			logger.info ("Ingresa alto: ");
+			alto = input.nextInt();
+			if (alto!=0){
+				break;
+			}
+			else {
+				logger.warning ("¡El alto no puede ser 0!");
+			}
+		}
+
+		while(true){
+			logger.info ("Ingresa ancho: ");
+			ancho = input.nextInt();
+			if (ancho!=0){
+				break;
+			}
+			else {
+				logger.warning ("¡El ancho no puede ser 0!");
+			}
+		}
 
 		int [][]board = generate_board (ancho, alto);
 		logger.info("Quedan " + CASILLAS_RESTANTES + " casillas por abrir!");
