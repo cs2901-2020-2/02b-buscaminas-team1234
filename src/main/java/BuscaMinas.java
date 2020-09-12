@@ -24,9 +24,9 @@ public class BuscaMinas {
 				else
 					board[i][j] = MINA;
 			}
-	    }
-	    return board;
-    }
+		}
+		return board;
+	}
 
       public static void updateBoard(int alto, int ancho){
 		selectedCasillas.put(alto + 1, ancho + 1);
@@ -56,17 +56,9 @@ public class BuscaMinas {
 		}
     }
 
-    public static boolean check_if_win (int [][]board, int ancho, int alto) {
-    	boolean win = true;
-      
-		for (int iterador_alto = 0; iterador_alto < alto; iterador_alto++) {
-			for (int iterador_ancho = 0; iterador_ancho < ancho; iterador_ancho++) {
-				if (board[iterador_alto][iterador_ancho] == CASILLA)
-					win = false;
-			}
-		}
-		return win;
-    }
+   public static boolean check_if_win (int [][]board) {
+	  return CASILLAS_RESTANTES == 0;
+	  }
 
 	public static void main (String [] args) {
 		Scanner input = new Scanner (System.in);
@@ -127,8 +119,5 @@ public class BuscaMinas {
 				break;
 			}
 		}
-
-
 	}
-
 }
