@@ -28,27 +28,16 @@ public class BuscaMinas {
 	    return board;
     }
 
-    public static void updateBoard(int alto, int ancho){
+      public static void updateBoard(int alto, int ancho){
 		selectedCasillas.put(alto, ancho);
 		CASILLAS_RESTANTES--;
-		System.out.println("Quedan " + CASILLAS_RESTANTES + " casillas sin minas");
-		System.out.println("Casillas abiertas: ");
-		Iterator it = selectedCasillas.keySet().iterator();
-		while(it.hasNext()) {
-			Integer key = (Integer) it.next();
-			System.out.println("[" + key + "]" + "[" + selectedCasillas.get(key) + "]");
-		}
-
-		/*CASILLAS_RESTANTES--;
 		logger.info("Quedan " + CASILLAS_RESTANTES + " casillas sin minas");
 		logger.info("Casillas abiertas: ");
 		Iterator it = selectedCasillas.keySet().iterator();
 		while(it.hasNext()){
 			Integer key = (Integer) it.next();
 			logger.info("[" + key + "]" + "["+ selectedCasillas.get(key) + "]");
-		}*/
-
-
+		}
 	}
 
     public static boolean select_space(int alto, int ancho, int [][] board) {
