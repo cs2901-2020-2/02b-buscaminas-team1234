@@ -4,23 +4,23 @@ import org.testng.Assert;
 import java.io.IOException;
 import java.io.InputStream;
 
-@Test
 public class BuscaMinasTest {
-    public void testCase0() throws IOException {
+    @Test
+    public void test_check_win0() throws IOException {
         int ancho = 3, alto = 3;
         int [][]board = generate_test_board (ancho, alto);
         generic (board, ancho, alto, true);
     }
-
-    public void testCase1() throws IOException {
+    @Test
+    public void test_check_win1() throws IOException {
         int ancho = 4, alto = 6;
         int [][]board = generate_test_board (ancho, alto);
         board[2][1] = -1;
         board[3][3] = -1;
         generic (board, ancho, alto, true);
     }
-
-    public void testCase3() throws IOException {
+    @Test
+    public void test_check_win2() throws IOException {
         int ancho = 2, alto = 2;
         int [][]board = generate_test_board (ancho, alto);
         board[1][1] = -1;
