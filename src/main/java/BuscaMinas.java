@@ -46,7 +46,7 @@ public class BuscaMinas {
 			updateBoard(alto, ancho);
 			return false;
 		}
-		else if(board[ancho][alto] == CASILLA_ABIERTA){
+		else if(board[alto][ancho] == CASILLA_ABIERTA){
 			logger.info("Casilla llena!");
 			return false;
 		}
