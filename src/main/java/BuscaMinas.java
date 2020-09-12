@@ -1,5 +1,4 @@
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 import java.util.logging.*;
 
 
@@ -10,24 +9,23 @@ public class BuscaMinas {
 
 	static final Logger logger = Logger.getLogger(BuscaMinas.class.getName());
 
-	private static boolean check_if_win(int[][] board) {
-		return false;
-    }
+
+
 
 	public static int[][] generate_board(int ancho, int alto) {
-	    int [][]board = new int[ancho][alto];
-	    Random rand = new Random();
+		int[][] board = new int[ancho][alto];
+		Random rand = new Random();
 
-	    for (int iterador_ancho = 0; iterador_ancho < ancho; iterador_ancho++) {
-	    	for (int iterador_alto = 0; iterador_alto < alto; iterador_alto++) {
-				if (rand.nextInt(2) == 0)
+		for (int iterador_ancho = 0; iterador_ancho < ancho; iterador_ancho++) {
+			for (int iterador_alto = 0; iterador_alto < alto; iterador_alto++) {
+				if (rand.nextInt(2) == 0) {
 					board[iterador_ancho][iterador_alto] = CASILLA;
-				else
+				} else
 					board[iterador_ancho][iterador_alto] = MINA;
 			}
-	    }
-	    return board;
-    }
+		}
+		return board;
+	}
 
     public static boolean select_space(int ancho, int alto, int [][] board) {
     	if (board[ancho][alto] == CASILLA) {
@@ -38,16 +36,9 @@ public class BuscaMinas {
 			return true;
     }
 
-    public boolean check_if_win (int [][]board, int ancho, int alto) {
-    	boolean win = true;
-		for (int iterador_ancho = 0; iterador_ancho < ancho; iterador_ancho++) {
-			for (int iterador_alto = 0; iterador_alto < alto; iterador_alto++) {
-				if (board[iterador_ancho][iterador_alto] == CASILLA)
-					win = false;
-			}
-		}
-		return win;
-    }
+    public static boolean check_if_win (int [][]board) {
+		return CASILLAS_RESTANTES == 0;
+	}
 
 	public static void main (String [] args) {
 		Scanner input = new Scanner (System.in);
@@ -80,7 +71,7 @@ public class BuscaMinas {
 			}
 			if (check_if_win (board)) {
 				logger.info ("Ganaste :)");
-				return;
+				break;
 			}
 		}
 	}
