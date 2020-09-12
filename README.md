@@ -6,7 +6,7 @@ Implementacion de un buscaminas simple donde se dividio las funciones y test.
 
 ### Integrantes:
 - Eduardo Salas     201820145
-- Alvaro Aguirre    201
+- Alvaro Aguirre    201820076
 - Victor Peña       201810212
 - Mauricio Pinto    201
 - Jonathan Prieto   201
