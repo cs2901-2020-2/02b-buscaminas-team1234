@@ -29,7 +29,7 @@ public class BuscaMinas {
     }
 
       public static void updateBoard(int alto, int ancho){
-		selectedCasillas.put(alto, ancho);
+		selectedCasillas.put(alto + 1, ancho + 1);
 		CASILLAS_RESTANTES--;
 		logger.info("Quedan " + CASILLAS_RESTANTES + " casillas sin minas");
 		logger.info("Casillas abiertas: ");
@@ -46,14 +46,12 @@ public class BuscaMinas {
 			updateBoard(alto, ancho);
 			return false;
 		}
-		else if(board[ancho][alto] == CASILLA_ABIERTA){
-			logger.info("Casilla llena!");
+		else if(board[alto][ancho] == CASILLA_ABIERTA){
+			logger.info("Esta casilla ya ha sido abierta!");
 			return false;
 		}
 		else{
-			logger.info("Perdiste!");
 			return true;
-
 		}
     }
 
