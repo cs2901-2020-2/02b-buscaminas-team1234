@@ -56,9 +56,17 @@ public class BuscaMinas {
 		}
     }
 
-   public static boolean check_if_win (int [][]board) {
-	  return CASILLAS_RESTANTES == 0;
-	  }
+   public static boolean check_if_win (int [][]board, int ancho, int alto) {
+    	boolean win = true;
+      
+		for (int iterador_alto = 0; iterador_alto < alto; iterador_alto++) {
+			for (int iterador_ancho = 0; iterador_ancho < ancho; iterador_ancho++) {
+				if (board[iterador_alto][iterador_ancho] == CASILLA)
+					win = false;
+			}
+		}
+		return win;
+    }
 
 	public static void main (String [] args) {
 		Scanner input = new Scanner (System.in);
